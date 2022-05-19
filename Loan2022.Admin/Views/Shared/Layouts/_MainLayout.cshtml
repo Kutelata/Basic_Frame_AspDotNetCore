@@ -1,0 +1,21 @@
+@{
+    Layout = "Layouts/_BaseLayout";
+}
+
+@section styles
+{
+    @await RenderSectionAsync("styles", required: false)
+}
+
+@section scripts
+{
+    @await RenderSectionAsync("scripts", required: false)
+}
+<div class="wrapper">
+    @await Html.PartialAsync("TopBar")
+    @await Html.PartialAsync("SideBarMenu")
+    <div class="content-wrapper">
+        @RenderBody()
+    </div>
+    @await Html.PartialAsync("Footer")
+</div>>

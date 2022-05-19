@@ -1,0 +1,65 @@
+@using Loan2022.ViewModels.Employee
+@using Loan2022.ViewModels.Contract
+@using Loan2022.Application.Enums
+@{
+    Layout = "Layouts/_MainLayout";
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/customer-care.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/customer-care.js"></script>
+      <!-- endbuilder:js -->
+}
+
+@{
+    var em = ViewBag.Employee as CreateOrEditEmployeeDto;
+    var contract = ViewBag.Contract as ContractDto;
+}
+
+<div class="container">
+    <div>
+        <div>
+            <img src="images/customer_care.jpg" alt="">
+        </div>
+        @if (contract != null)
+        {
+            <div class="text-center connect-title">
+                <p>Nhấn vào nút bên dưới để liên hệ THẨM ĐỊNH VIÊN</p>
+            </div>
+            <div class="text-center connect-btn">
+                <button class="learn-more" onclick="@(em != null ? $"location.href='{em.ChatId}'" : "")">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Liên hệ THẨM ĐỊNH VIÊN</span>
+                </button>
+            </div>
+            <div class="text-center time-title">
+                <p>Thời gian làm việc từ 8:30 - 20:30</p>
+            </div>
+        }
+        else
+        {
+            <div class="text-center connect-title">
+                <p>Bạn vui lòng hoàn tất thông tin để liên hệ với THẨM ĐỊNH VIÊN</p>
+            </div>
+            <div class="text-center connect-btn">
+                <button class="learn-more" onclick="@(em != null ? $"location.href='/verify'" : "")">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Xác minh thông tin</span>
+                </button>
+            </div>
+        }
+    </div>
+</div>

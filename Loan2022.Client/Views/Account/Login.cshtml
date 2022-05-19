@@ -1,0 +1,37 @@
+@{
+    Layout = "Layouts/_BaseLayout";
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/login.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/login.js"></script>
+      <!-- endbuilder:js -->
+}
+@* <div class="container"> *@
+@*       <form action="" id="form"> *@
+@*             <div class="form-group"> *@
+@*                   <input type="text" name="phone" placeholder="Số điện thoại"> *@
+@*                    <i class="l-icon icon-l_phone"></i> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                   <input type="password" name="password" placeholder="Mật khẩu"> *@
+@*                   <i class="l-icon icon-l_key"></i> *@
+@*             </div> *@
+@*             <div> *@
+@*                   <button type="submit" class="btn-login">Đăng nhập</button> *@
+@*                   <a href="">Quên mật khẩu</a> *@
+@*             </div> *@
+@*       </form> *@
+@* </div> *@
+<div class="container">
+      <div data-module="login"></div>
+</div>

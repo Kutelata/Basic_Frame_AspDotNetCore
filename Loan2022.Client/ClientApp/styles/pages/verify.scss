@@ -1,0 +1,57 @@
+﻿@import "../common/default";
+.ant-spin-nested-loading{
+  &.container-loading{
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    > div > .ant-spin {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+  }
+}
+.upload-area{
+  border-radius: 24px;
+  background: #f4f8fb;
+  border: 2px dashed #c5d1e2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 20vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.ant-upload{
+  width: 100%;
+}
+.steps-content{
+  margin-top: 20px;
+  padding: 0 30px;
+}
+.steps-action{
+  margin-top: 30px;
+}
+.preview-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.3125rem;
+  border-radius: 10px;
+  z-index: 1000;
+  transition: opacity 300ms ease-in-out;
+}
+
+.upload-image-zone{
+  margin-bottom: 10px;
+}
+
+.verify-steps{
+  margin-top: 30px;
+}

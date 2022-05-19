@@ -1,0 +1,155 @@
+stages:
+  - build-stage-client
+  - deploy-stage-client
+  - build-stage-cms
+  - deploy-stage-cms
+  - build-client
+  - deploy-client
+  - build-cms
+  - deploy-cms
+
+build-stage-client-job: 
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  stage: build-stage-client
+  artifacts:
+      paths:
+        - output/
+      expire_in: 1 hour
+  before_script:
+      - apt update
+      - apt -y install nodejs npm
+  script:
+    - source build.sh \.build.sh && build 'Staging' 'Client' 'staging:client'
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+  only:
+    - client-staging
+
+deploy-stage-client-job:   
+  stage: deploy-stage-client
+  tags:
+      - "money24"
+  before_script:
+    - export ASPNETCORE_ENVIRONMENT=Staging
+    - dotnet tool install --global dotnet-ef || echo ""
+    - dotnet ef --project ./Loan2022.Infrastructure/Loan2022.Infrastructure.csproj --startup-project ./Loan2022.Client/Loan2022.Client.csproj database update --context ApplicationDbContext
+  script:
+    - rm -r -f /var/www/Staging_Client
+    - mkdir /var/www/Staging_Client
+    - cp -a output/. /var/www/Staging_Client
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+  dependencies:
+    - build-stage-client-job
+  only:
+    - client-staging
+
+
+
+build-cms-stage-job: 
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    stage: build-stage-cms
+    artifacts:
+      paths:
+        - output/
+      expire_in: 1 hour
+    before_script:
+      - apt update
+      - apt -y install nodejs npm
+    script:
+      - source build.sh \.build.sh && build 'Staging' 'Admin' 'staging:admin'
+    only:
+      - cms-staging
+
+deploy-cms-staging-job:   
+    stage: deploy-stage-cms
+    tags:
+        - "money24"
+    before_script:
+      - export ASPNETCORE_ENVIRONMENT=Staging
+      - dotnet tool install --global dotnet-ef || echo ""
+      - dotnet ef --project ./Loan2022.Infrastructure/Loan2022.Infrastructure.csproj --startup-project ./Loan2022.Admin/Loan2022.Admin.csproj database update --context ApplicationDbContext
+    script:
+      - rm -r -f /var/www/Staging_Admin
+      - mkdir /var/www/Staging_Admin
+      - cp -a output/. /var/www/Staging_Admin
+      - echo "Application successfully deployed."
+    dependencies:
+      - build-cms-stage-job
+    only:
+    - cms-staging
+
+
+build-client-job: 
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+  stage: build-client
+  artifacts:
+      paths:
+        - output/
+      expire_in: 1 hour
+  before_script:
+      - apt update
+      - apt -y install nodejs npm
+  script:
+    - source build.sh \.build.sh && build 'Production' 'Client' 'build:client'
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+  only:
+    - client-production
+
+deploy-client-job:   
+  stage: deploy-client
+  tags:
+      - "money24"
+  before_script:
+    - export ASPNETCORE_ENVIRONMENT=Production
+    - dotnet tool install --global dotnet-ef || echo ""
+    - dotnet ef --project ./Loan2022.Infrastructure/Loan2022.Infrastructure.csproj --startup-project ./Loan2022.Client/Loan2022.Client.csproj database update --context ApplicationDbContext
+  script:
+    - rm -r -f /var/www/Client
+    - mkdir /var/www/Client
+    - cp -a output/. /var/www/Client
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+  dependencies:
+    - build-client-job
+  only:
+    - client-production
+
+
+
+cms-production: 
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    stage: build-cms
+    artifacts:
+      paths:
+        - output/
+      expire_in: 1 hour
+    before_script:
+      - apt update
+      - apt -y install nodejs npm
+    script:
+      - source build.sh \.build.sh && build 'Production' 'Admin' 'build:admin'
+    only:
+      - cms-production
+
+deploy-cms-job:   
+    stage: deploy-cms
+    tags:
+        - "money24"
+    before_script:
+      - export ASPNETCORE_ENVIRONMENT=Production
+      - dotnet tool install --global dotnet-ef || echo ""
+      - dotnet ef --project ./Loan2022.Infrastructure/Loan2022.Infrastructure.csproj --startup-project ./Loan2022.Admin/Loan2022.Admin.csproj database update --context ApplicationDbContext
+    script:
+      - rm -r -f /var/www/Admin
+      - mkdir /var/www/Admin
+      - cp -a output/. /var/www/Admin
+      - echo "Application successfully deployed."
+    dependencies:
+      - cms-production
+    only:
+    - cms-production
+  
+
+  

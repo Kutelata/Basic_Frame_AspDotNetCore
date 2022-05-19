@@ -1,0 +1,25 @@
+@using Loan2022.ViewModels.Customer
+@{
+    Layout = "Layouts/_BaseLayout";
+}
+@{
+      var customer = ViewBag.Customer as GetCustomerForDetail;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/verify.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/verify.js"></script>
+      <!-- endbuilder:js -->
+}
+<div class="container">
+      <div class="verify-steps" data-module="verify-steps" data-currentStep = "@customer?.CurrentStepVerify"></div>
+</div>

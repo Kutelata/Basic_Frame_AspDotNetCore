@@ -1,0 +1,52 @@
+﻿@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+    var id = @ViewBag.id;
+}
+
+
+@section styles
+{
+    <!-- builder:css -->
+    <link href="http://localhost:3004/home.css" rel="stylesheet">
+    <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+    <!-- builder:js -->
+    <script defer src="http://localhost:3004/hot-reload.js"></script>
+    <script defer src="http://localhost:3004/home.js"></script>
+    <!-- endbuilder:js -->
+}
+
+<div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Quản lý danh sách ngân hàng</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="#">Table</a>
+                        </li>
+                        <li class="breadcrumb-item active">ngân hàng</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div data-module="create-or-update-bank" data-id="@id">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

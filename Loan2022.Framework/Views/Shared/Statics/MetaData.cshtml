@@ -1,0 +1,28 @@
+@using Loan2022.ViewModels
+@{
+    var metaConfig = ViewData["MetaDataConfig"] != null ? (MetaDataConfigViewModel) ViewData["MetaDataConfig"]  : new MetaDataConfigViewModel();
+    var metaHeader = metaConfig?.MetaDataHeader ?? new MetaDataHeaderModel();
+}
+
+<meta name="robots" content="noindex,nofollow" />
+@* <meta name="robots" content="index,follow,all"> *@
+<title>
+    @metaHeader?.Title
+</title>
+<meta name="description" content="@metaHeader.MetaDescription?.Trim()"/>
+<meta name="keywords" content="@metaHeader.MetaKeyword"/>
+<meta name="title" content="@metaHeader.MetaTitle"/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://money24.vn/">
+<meta property="og:title" content="Money 24">
+<meta property="og:description" content="Money 24">
+<meta property="og:image" content="https://cdn.money24.vn/logo.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://money24.vn/">
+<meta property="twitter:title" content="Money 24">
+<meta property="twitter:description" content="Money 24">
+<meta property="twitter:image" content="https://cdn.money24.vn/logo.jpg">

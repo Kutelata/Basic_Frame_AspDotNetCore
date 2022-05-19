@@ -1,0 +1,35 @@
+@import "../common/default";
+@import "../common/bottom-nav";
+
+.ant-page-header-heading{
+  justify-content: center;
+}
+
+.ant-steps-item-title{
+  font-size: 14px;
+  line-height: 22px;
+}
+.steps-content{
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.steps-action{
+  margin-top: 30px;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.ant-result{
+  padding: 15px 0;
+}
+.ant-result-title{
+  font-size: 16px;
+}
+
+.detailt-1{
+  border-top: 1px solid;
+  padding-top: 5px;
+}

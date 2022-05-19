@@ -1,0 +1,49 @@
+{
+  "name": "Loan2022 - Client",
+  "assetsFolder": "./ClientApp",
+  "outputFolder": "./wwwroot/dist",
+  "entryPoints": [
+    {
+      "name": "Trang chủ",
+      "file": "./pages/home.js",
+      "views": [
+        "./Views/Home/Index.cshtml"
+      ]
+    },
+    {
+      "name": "home",
+      "file": "./pages/employee.js",
+      "views": [
+        "./Views/Employee/Index.cshtml"
+      ]
+    },
+    {
+      "name": "customer",
+      "file": "./pages/customer.js",
+      "views": [
+        "./Views/Customer/Index.cshtml"
+      ]
+    },
+    {
+      "name": "customerDetail",
+      "file": "./pages/customer-detail.js",
+      "views": [
+        "./Views/Customer/CustomerDetail.cshtml"
+      ]
+    }
+  ],
+  "appSettingKeys": [
+    "AssertsDomain",
+    "WebApi",
+    "MediaDomain"
+  ],
+  "publicPath": "",
+  "env": {
+    "production": {
+      "publicPath": "/dist"
+    },
+    "staging": {
+      "publicPath": "/dist"
+    }
+  }
+}

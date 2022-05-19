@@ -1,0 +1,28 @@
+﻿@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+    var months = ViewBag.Months;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/register-contract.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/register-contract.js"></script>
+      <!-- endbuilder:js -->
+    <script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.months = @Html.Raw(JsonConvert.SerializeObject(months))
+    </script>
+}
+
+<div class="container" style="overflow: auto; min-height: 680px;">
+    <div data-module="register-contract"></div>
+</div>

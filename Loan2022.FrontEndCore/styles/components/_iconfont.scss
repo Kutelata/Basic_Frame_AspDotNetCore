@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "l-icon";
+    src: url('@front-end/assets/fonts/iconfont.eot');
+    src: url('@front-end/assets/fonts/iconfont.eot?#iefix') format('eot'),
+      url('@front-end/assets/fonts/iconfont.woff') format('woff'),
+      url('@front-end/assets/fonts/iconfont.ttf') format('truetype'),
+      url('@front-end/assets/fonts/iconfont.svg#l-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .l-icon{
+    display: inline-block;
+    font-family: "l-icon";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-lg {
+    font-size: 1.3333333333333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+  }
+  .icon-2x { font-size: 2em; }
+  .icon-3x { font-size: 3em; }
+  .icon-4x { font-size: 4em; }
+  .icon-5x { font-size: 5em; }
+  .icon-fw {
+    width: 1.2857142857142858em;
+    text-align: center;
+  }
+
+  .l-icon.icon-headphones:before { content: "\E901" }
+  .l-icon.icon-credit-card:before { content: "\E902" }
+  .l-icon.icon-profile:before { content: "\E903" }
+  .l-icon.icon-coin-dollar:before { content: "\E904" }
+  .l-icon.icon-user:before { content: "\E905" }
+  .l-icon.icon-menu:before { content: "\E906" }
+  .l-icon.icon-logout:before { content: "\E907" }
+  .l-icon.icon-arrow-left:before { content: "\E908" }
+  .l-icon.icon-users:before { content: "\E909" }

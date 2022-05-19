@@ -1,0 +1,1 @@
+﻿require('../styles/pages/customer-detail.scss')

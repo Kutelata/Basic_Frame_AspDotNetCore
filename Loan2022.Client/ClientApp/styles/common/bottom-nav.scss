@@ -1,0 +1,49 @@
+$color-white: rgba(249,249,249,.98);
+$color-black: #1f1f1f;
+$color-light: #f1f5f8;
+$color-red: #da4453;
+
+$box-shadow: 0 -5px 10px 0 rgb(0 0 0 / 6%);
+
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 0;
+  background-color: $color-white;
+  z-index: 99;
+  will-change: transform;
+  transform: translateZ(0);
+  box-shadow: $box-shadow;
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.8rem;
+    a{
+      color: $color-black;
+      font-family: "Roboto";
+      font-weight: 500;
+    }
+    span{
+      margin-top: 8px;
+    }
+    i{
+      font-size: 1.5em;
+    }
+  }
+
+  &-link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .active {
+    color: $color-red;
+  }
+}

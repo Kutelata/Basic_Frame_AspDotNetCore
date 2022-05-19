@@ -1,0 +1,88 @@
+@import "../common/default";
+
+body {
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #185a9d, #43cea2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.card {
+  height: 40vh;
+  padding: 20px;
+  margin: 20vh 0 20px;
+  position: relative;
+  background: #fff;
+  color: #485054;
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: linear-gradient(-50deg, #fff 4px, transparent 0px),
+    linear-gradient(50deg, #fff 4px, transparent 0px);
+    background-size: 10px 10px;
+    background-repeat: repeat-x;
+  }
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    background: linear-gradient(-135deg, #fff 4px, transparent 0px),
+    linear-gradient(135deg, #fff 4px, transparent 0px);
+    background-size: 10px 10px;
+    background-repeat: repeat-x;
+  }
+}
+
+/* From cssbuttons.io */
+button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+span.highlight{
+  color: #3d1bf1;
+  font-weight: 500;
+}
+
+.content{
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 45px;
+}
+
+h2{
+  border-bottom: 1px dashed #7f9495;
+  padding-bottom: 10px;
+}

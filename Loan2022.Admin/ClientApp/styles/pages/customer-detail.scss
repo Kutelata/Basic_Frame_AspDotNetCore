@@ -1,0 +1,66 @@
+﻿.medias-image {
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+.medias-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.change-wallet {
+  display: flow-root;
+  margin-top: 15px;
+  padding: 0 20px;
+}
+
+.wallet-history {
+  margin-top: 15px;
+}
+
+.history {
+  width: 100%;
+  display: flex;
+  margin-top: 6px;
+}
+
+.history-item {
+  width: 50%;
+}
+
+
+.contract {
+  width: 100%;
+  display: flex;
+  margin-top: 6px;
+}
+
+.contract-left-item {
+  width: 30%;
+}
+
+.contract-right-item {
+  width: 70%;
+}
+
+
+.modal-large {
+  width: 850px !important;
+}
+
+.request-item {
+  border-bottom: 1px solid #a8a4a4;
+  padding-bottom: 10px;
+}
+.icon-edit-account-number{
+  padding-left: 10px;
+  cursor: pointer;
+}
+.btn-save-custom{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 0px;
+  padding: 0px 6px;
+}

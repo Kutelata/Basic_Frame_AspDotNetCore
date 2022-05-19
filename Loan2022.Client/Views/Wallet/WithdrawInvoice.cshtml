@@ -1,0 +1,51 @@
+@using Loan2022.ViewModels.Customer
+@using Newtonsoft.Json
+@using System.Globalization
+@model WithdrawInvoiceViewModel
+@{
+    Layout = "Layouts/_BaseLayout";
+}
+@{
+    var customer = ViewBag.Customer as GetCustomerForDetail;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/withdraw-invoice.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/withdraw-invoice.js"></script>
+      <!-- endbuilder:js -->
+    @* <script > *@
+    @*     window.GLOBAL = window.GLOBAL || {} *@
+    @*     window.GLOBAL.contract = @Html.Raw(JsonConvert.SerializeObject(new *@
+    @*                              { *@
+    @*                                  TotalMoney = customer?.TotalMoney *@
+    @*                              })) *@
+    @* </script> *@
+}
+
+@if (Model != null)
+{
+    <div class="container">
+        <div class="card">
+            <h2 class="text-center">Đang xử lý !</h2>
+            @{
+                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            }
+            <div class="content">
+                Yêu cầu rút <span class="highlight">@Model.Request.AmountOfMoney.ToString("#,###", cul.NumberFormat) VND</span> của bạn đến số tài khoản
+                <span class="highlight">@Model.Customer.AccountNumber / @Model.Customer.BeneficiaryOfName / @Model.Bank.BankName</span> vào lúc @Model.CreatedAt.ToString("g") đang chờ xác thực, vui lòng chờ trong 2 giờ !
+            </div>
+
+        </div>
+        <button style="margin-bottom: 15px" onclick="location.href='/withdraw'">Tạo giao dịch mới</button>
+        <button onclick="location.href='/borrow'">Về trang chủ</button>
+    </div>
+}

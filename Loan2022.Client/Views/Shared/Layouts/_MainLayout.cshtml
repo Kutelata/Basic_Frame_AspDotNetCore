@@ -1,0 +1,15 @@
+@{
+    Layout = "Layouts/_BaseLayout";
+}
+@section styles
+{
+    @await RenderSectionAsync("styles", required: false)
+}
+
+@section scripts
+{
+    @await RenderSectionAsync("scripts", required: false)
+}
+
+@RenderBody()
+@await Html.PartialAsync("BottomNav")

@@ -1,0 +1,79 @@
+@using Loan2022.ViewModels.Customer
+@using Loan2022.ViewModels.Contract
+@using System.Globalization
+@using Loan2022.Application.Enums
+@using Loan2022.ViewModels.Bank
+@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+}
+@{
+    var customer = ViewBag.Customer as GetCustomerForDetail;
+    var contract = ViewBag.Contract as ContractDto;
+    var bank = ViewBag.Bank as BankDto;
+    var history = ViewBag.History;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/wallet.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/wallet.js"></script>
+      <!-- endbuilder:js -->
+ <script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.contract = @Html.Raw(JsonConvert.SerializeObject(new
+                               {
+                                   contract,
+                                   customer,
+                                   signature = ViewBag.Signature,
+                                   templateContract = ViewBag.TemplateContract,
+                                   companyName = ViewBag.CompanyName,
+                                   month=ViewBag.Month
+                               }))
+        window.GLOBAL.history = @Html.Raw(JsonConvert.SerializeObject(history))
+    </script>
+}
+
+<div>
+    <div class="atm-container">
+        <div class="name-zone">
+            @if (customer?.Status == CustomerStatus.Verified.ToString())
+            {
+                <div>*********@customer.AccountNumber.Substring(customer.AccountNumber.Length - 3)</div>
+                <div>@customer.BeneficiaryOfName</div>
+            }
+            else
+            {
+                <div>Chưa đăng ký</div>
+            }
+        </div>
+        @if (customer?.Status == CustomerStatus.Verified.ToString())
+        {
+            <div class="logo">
+                <img src="@(bank != null ? bank.Logo : "")" alt="">
+            </div>
+        }
+    </div>
+</div>
+<div class="text-center slogan">Sự an toàn của quỹ tài khoản được ngân hàng đảm bảo</div>
+<div class="balance">
+    <div>
+        <div>Số dư khả dụng</div>
+        @{
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+        }
+        <div>@(customer?.TotalMoney == 0 ? "0" : customer?.TotalMoney.ToString("#,###", cul.NumberFormat)) VNĐ</div>
+    </div>
+    <div data-module="btn-show-history">
+        
+    </div>
+</div>
+<div data-module="show-contract"></div>

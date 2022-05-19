@@ -1,0 +1,43 @@
+﻿@import '@front-end/styles/base';
+@import './plugins/adminlte.css';
+
+.wrapper .content-wrapper {
+  min-height: calc(100vh - calc(3.5rem + 1px)) !important;
+}
+
+
+.width-100 {
+  width: 100px;
+}
+
+.width-150 {
+  width: 150px;
+}
+
+.ql-editor {
+  min-height: 18em;
+}
+
+.display-inline-block {
+  display: inline-block
+}
+
+.signature {
+  width: 200px;
+  height: 200px;
+}
+
+.preview-image {
+  width: 200px;
+}
+.avatar-uploader > .ant-upload {
+  width: 128px;
+  height: 128px;
+}
+
+.logo-bank{
+  width: 60px;
+}
+.ant-message{
+  z-index: 3000 !important;
+}

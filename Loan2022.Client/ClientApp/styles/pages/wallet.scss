@@ -1,0 +1,142 @@
+@import "../common/default";
+@import "../common/bottom-nav";
+
+.atm-container {
+  max-width: 95vw;
+  margin: 10px auto 0;
+  background: url("../../assets/atmbg.png") no-repeat center;
+  background-size: contain;
+  height: 31vh;
+  position: relative;
+}
+
+.name-zone {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  background: rgb(0 0 0 / 23%);
+  width: 170px;
+  padding-left: 10px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  overflow: auto;
+
+  img {
+    width: 100%;
+  }
+}
+
+.balance {
+  margin-top: 20px;
+  background: #e5e5e5;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slogan {
+  font-size: 12px;
+  color: #0088ff;
+}
+
+.btn-withdraw {
+  /* From cssbuttons.io */
+  .button {
+    display: inline-block;
+    padding: 6px 24px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+    color: black;
+    z-index: 1;
+  }
+
+  .button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+
+  .button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #39bda7;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+
+  .button:hover {
+    color: #ffffff;
+    border: 1px solid #39bda7;
+  }
+
+  .button:hover:before {
+    top: -35%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+  .button:hover:after {
+    top: -45%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px
+}
+
+.ant-modal-body{
+  max-height: 350px;
+  overflow: auto;
+}
+
+.contract-header{
+  font-size: large;
+}
+
+.flex-scc {
+  .ant-modal-footer {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.ant-result-content{
+  background: none;
+  margin-top: 0;
+  padding: 0;
+}
+.ant-result{
+  padding: 0;
+}

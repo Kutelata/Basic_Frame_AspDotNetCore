@@ -1,0 +1,29 @@
+@import "@front-end/styles/base";
+@import '@front-end/styles/shared.scss';
+@import "antd/dist/antd.css";
+a{
+  text-decoration: none;
+}
+*{
+  box-sizing: border-box;
+}
+
+html, body {
+  width: auto;
+  height: 100%;
+}
+
+body{
+  font-family: $font-body;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center{
+  text-align: center;
+}

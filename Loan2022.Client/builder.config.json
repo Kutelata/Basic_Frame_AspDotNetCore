@@ -1,0 +1,98 @@
+{
+  "name": "Loan2022 - Client",
+  "assetsFolder": "./ClientApp",
+  "outputFolder": "./wwwroot/dist",
+  "entryPoints": [
+    {
+      "name": "home",
+      "file": "./pages/home.js",
+      "views": [
+        "./Views/Home/Index.cshtml"
+      ]
+    },
+    {
+      "name": "wallet",
+      "file": "./pages/wallet.js",
+      "views": [
+        "./Views/Wallet/Index.cshtml"
+      ]
+    },
+    {
+      "name": "profile",
+      "file": "./pages/profile.js",
+      "views": [
+        "./Views/Profile/Index.cshtml"
+      ]
+    },
+    {
+      "name": "customer care",
+      "file": "./pages/customer-care.js",
+      "views": [
+        "./Views/CustomerCare/Index.cshtml"
+      ]
+    },
+    {
+      "name": "borrow",
+      "file": "./pages/borrow.js",
+      "views": [
+        "./Views/Borrow/Index.cshtml"
+      ]
+    },
+    {
+      "name": "login",
+      "file": "./pages/login.js",
+      "views": [
+        "./Views/Account/Login.cshtml"
+      ]
+    },
+    {
+      "name": "verify",
+      "file": "./pages/verify.js",
+      "views": [
+        "./Views/Account/Verify.cshtml"
+      ]
+    },
+    {
+      "name": "register contract",
+      "file": "./pages/register-contract.js",
+      "views": [
+        "./Views/Borrow/RegisterContract.cshtml"
+      ]
+    },
+    {
+      "name": "sign contract",
+      "file": "./pages/sign-contract.js",
+      "views": [
+        "./Views/Borrow/ContractSign.cshtml"
+      ]
+    },
+    {
+      "name": "withdraw",
+      "file": "./pages/withdraw.js",
+      "views": [
+        "./Views/Wallet/WithDraw.cshtml"
+      ]
+    },
+    {
+      "name": "withdraw invoice",
+      "file": "./pages/withdraw-invoice.js",
+      "views": [
+        "./Views/Wallet/WithdrawInvoice.cshtml"
+      ]
+    }
+  ],
+  "appSettingKeys": [
+    "AssertsDomain",
+    "WebApi",
+    "MediaDomain"
+  ],
+  "publicPath": "",
+  "env": {
+    "production": {
+      "publicPath": "/dist"
+    },
+    "staging": {
+      "publicPath": "/dist"
+    }
+  }
+}

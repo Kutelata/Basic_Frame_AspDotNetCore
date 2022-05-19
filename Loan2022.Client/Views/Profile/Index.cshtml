@@ -1,0 +1,69 @@
+@using Loan2022.ViewModels.Customer
+@using Loan2022.ViewModels.Contract
+@using Loan2022.Application.Enums
+@using Loan2022.ViewModels.Employee
+@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/profile.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@{
+    var customer = ViewBag.Customer as GetCustomerForDetail;
+    var avatar = ViewBag.Avatar as string;
+    var contract = ViewBag.Contract as ContractDto;
+    var em = ViewBag.Employee as CreateOrEditEmployeeDto;
+    var bankName = ViewBag.BankName as string;
+    var history = ViewBag.History;
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/profile.js"></script>
+      <!-- endbuilder:js -->
+
+<script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.customer = @Html.Raw(JsonConvert.SerializeObject(customer))
+        window.GLOBAL.bankName = @Html.Raw(JsonConvert.SerializeObject(bankName))
+        window.GLOBAL.history = @Html.Raw(JsonConvert.SerializeObject(history))
+        window.GLOBAL.contract = @Html.Raw(JsonConvert.SerializeObject(contract))
+        window.GLOBAL.interest = @Html.Raw(JsonConvert.SerializeObject( ViewBag.Interest))
+    </script>
+}
+
+
+
+<div class="container">
+    <div>
+        <div class="card">
+            <div class="card-header" style="background-image: url(images/logo.jpg);background-size: contain;">
+                <div class="card-photo">
+                    <img src="@avatar" alt="">
+                </div>
+            </div>
+            <div class="card-body">
+                <h3 class="card-name">@customer?.PhoneNumber</h3>
+                <div class="card-button">
+                    <div data-module="btn-xac-minh"></div>
+                    @if (contract != null)
+                    {
+                        <a href="@(em != null ? em.ChatId:"javascript:;")" class="btn btn-outline-primary">LIÊN HỆ THẨM ĐỊNH VIÊN</a>
+                    }
+                </div>
+                 <div class="text-center">
+                                <a type="button" href="/logout" class="ant-btn ant-btn-primary" style="text-align: center; text-transform: uppercase;"><span>Đăng xuất</span></a>
+                            </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@using Loan2022.ViewModels.Customer
+@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+}
+@{
+      var customer = ViewBag.Customer as GetCustomerForDetail;
+}
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/withdraw.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/withdraw.js"></script>
+      <!-- endbuilder:js -->
+<script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.contract = @Html.Raw(JsonConvert.SerializeObject(new
+                               {
+                                     TotalMoney = customer?.TotalMoney
+                               }))
+    </script>
+}
+
+<div class="container">
+      <div class="top" data-module="withdraw"></div>
+</div>

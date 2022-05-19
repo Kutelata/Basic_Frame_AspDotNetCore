@@ -1,0 +1,43 @@
+@using Newtonsoft.Json
+@using Loan2022.ViewModels.Customer
+@using Loan2022.ViewModels.Employee
+@{
+    Layout = "Layouts/_MainLayout";
+    var employee = ViewBag.Employee as CreateOrEditEmployeeDto;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/borrow.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/borrow.js"></script>
+      <!-- endbuilder:js -->
+<script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.employee = @Html.Raw(JsonConvert.SerializeObject(employee?.ChatId))
+    </script>
+}
+
+<div style="overflow: auto; min-height: 700px;">
+    <div class="top-img">
+        <img src="https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2020/10/931/506/Credible-small-personal-loan-iStock-859196032.jpg?ve=1&tl=1" alt="">
+    </div>
+    <div class="container middle" style="font-size: 20px;">
+        <div class="text-center">Khoản tiền vay đầu tiên có sẵn <br/>30 triệu <span>&#8594;</span> 500 triệu đồng</div>
+        <div class="slogan">
+            <div><span>&#187;</span> Chỉ mất 3 phút đăng ký</div>
+            <div><span>&#187;</span> Thông tin chi tiết - Lãi suất minh bạch</div>
+            <div><span>&#187;</span> Nhận kết quả hồ sơ nhanh chóng</div>
+        </div>
+    </div>
+    <div class="start-loan text-center">
+       <div data-module = "button-start-loan"></div>
+    </div>
+</div>

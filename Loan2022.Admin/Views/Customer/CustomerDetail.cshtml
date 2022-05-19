@@ -1,0 +1,62 @@
+@using Newtonsoft.Json
+@{
+    Layout = "Layouts/_MainLayout";
+    var customerId = @ViewBag.id;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/customerdetail.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/customerdetail.js"></script>
+      <!-- endbuilder:js -->
+}
+
+<div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Quản lý chi tiết khách hàng</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="#">Table</a>
+                        </li>
+                        <li class="breadcrumb-item active">người dùng</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid pb-2">
+            <div class="row mb-2">
+                <div class= "col-md-9" data-module="get-customer-detail-common" data-id="@customerId">
+                </div>
+                
+                <div class="col-md-3" data-module="get-customer-detail-medias" data-id="@customerId">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-module="get-customer-detail-contract" data-id="@customerId">
+                </div>
+
+                <div class="col-md-4 w" data-module="get-customer-detail-request" data-id="@customerId">
+                </div>
+
+                <div class="col-md-4 w" data-module="get-customer-detail-wallet" data-id="@customerId">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

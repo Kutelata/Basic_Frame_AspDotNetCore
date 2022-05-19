@@ -1,0 +1,40 @@
+﻿@using Newtonsoft.Json
+@using Loan2022.ViewModels.Interest
+@using Loan2022.ViewModels.Contract
+@using Loan2022.ViewModels.Employee
+@{
+    Layout = "Layouts/_MainLayout";
+}
+
+@{
+    var month = ViewBag.Month as InterestDto;
+    var contract = ViewBag.Contract as ContractDto;
+    var employee = ViewBag.Employee as CreateOrEditEmployeeDto;
+}
+
+@section styles
+{
+<!-- builder:css -->
+      <link href="http://localhost:3004/sign-contract.css" rel="stylesheet">
+      <!-- endbuilder:css -->
+}
+
+@section scripts
+{
+<!-- builder:js -->
+      <script defer src="http://localhost:3004/hot-reload.js"></script>
+<script defer src="http://localhost:3004/sign-contract.js"></script>
+      <!-- endbuilder:js -->
+    <script >
+        window.GLOBAL = window.GLOBAL || {}
+        window.GLOBAL.signContract = @Html.Raw(JsonConvert.SerializeObject(new
+                               {
+                                   month,
+                                   contract,
+                                   money = ViewBag.Money,
+                                   chatId = employee?.ChatId
+                               }))
+    </script>
+}
+
+<div style="overflow: auto; height: 650px;" data-module="sign-contract-steps"></div>
